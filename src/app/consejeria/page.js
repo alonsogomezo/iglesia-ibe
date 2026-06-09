@@ -2,11 +2,12 @@
 
 import { useState } from "react";
 
-export default function Contacto() {
+export default function Consejeria() {
   const [form, setForm] = useState({
     nombre: "",
     correo: "",
     telefono: "",
+    mensaje: "",
   });
   const [estado, setEstado] = useState(null);
 
@@ -18,7 +19,7 @@ export default function Contacto() {
     e.preventDefault();
     setEstado("enviando");
 
-    const res = await fetch("/api/contacto", {
+    const res = await fetch("/api/consejeria", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),
@@ -28,7 +29,7 @@ export default function Contacto() {
 
     if (data.ok) {
       setEstado("enviado");
-      setForm({ nombre: "", correo: "", telefono: "" });
+      setForm({ nombre: "", correo: "", telefono: "", mensaje: "" });
     } else {
       setEstado("error");
     }
@@ -38,42 +39,16 @@ export default function Contacto() {
     <>
       {/* Hero */}
       <section className="bg-ibe-celeste text-white py-20 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">Visítanos</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">Solicitar Consejería</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Nos alegra que quieras conocernos. Déjanos tus datos y pronto nos
-          pondremos en contacto contigo.
+          Estamos aquí para escucharte. Tu solicitud es confidencial.
         </p>
       </section>
 
-      {/* Contenido */}
+      {/* Formulario */}
       <section className="bg-white py-20 px-4">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Información */}
-          <div className="flex flex-col gap-6 text-ibe-azul">
-            <h2 className="text-2xl font-bold">Encuéntranos</h2>
-            <div>
-              <p className="font-semibold">📍 Dirección</p>
-              <p className="text-ibe-gris">Dirección de la iglesia</p>
-            </div>
-            <div>
-              <p className="font-semibold">📞 Teléfono</p>
-              <p className="text-ibe-gris">Teléfono de la iglesia</p>
-            </div>
-            <div>
-              <p className="font-semibold">✉️ Correo</p>
-              <p className="text-ibe-gris">correo@iglesia.com</p>
-            </div>
-            <div>
-              <p className="font-semibold">🕐 Horarios de culto</p>
-              <p className="text-ibe-gris">Domingo 10:00 AM</p>
-            </div>
-          </div>
-
-          {/* Formulario */}
+        <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <h2 className="text-2xl font-bold text-ibe-azul">
-              Registra tu visita
-            </h2>
 
             <div>
               <label className="text-ibe-azul font-medium text-sm mb-1 block">
@@ -120,17 +95,32 @@ export default function Contacto() {
               />
             </div>
 
+            <div>
+              <label className="text-ibe-azul font-medium text-sm mb-1 block">
+                ¿En qué podemos ayudarte? *
+              </label>
+              <textarea
+                name="mensaje"
+                value={form.mensaje}
+                onChange={handleChange}
+                required
+                rows={5}
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-ibe-azul focus:outline-none focus:border-ibe-celeste resize-none"
+                placeholder="Cuéntanos brevemente tu situación..."
+              />
+            </div>
+
             <button
               type="submit"
               disabled={estado === "enviando"}
               className="bg-ibe-celeste hover:bg-ibe-azul text-white font-semibold px-8 py-3 rounded-full transition disabled:opacity-50"
             >
-              {estado === "enviando" ? "Enviando..." : "Enviar"}
+              {estado === "enviando" ? "Enviando..." : "Enviar solicitud"}
             </button>
 
             {estado === "enviado" && (
               <p className="text-green-600 font-medium text-center">
-                ✅ ¡Gracias! Pronto nos pondremos en contacto contigo.
+                ✅ Tu solicitud fue enviada. Pronto nos pondremos en contacto contigo.
               </p>
             )}
             {estado === "error" && (
@@ -139,18 +129,12 @@ export default function Contacto() {
               </p>
             )}
 
-            <div className="border-t border-gray-100 pt-4 text-center">
-              <p className="text-ibe-gris text-sm mb-2">
-                ¿Necesitas hablar con alguien?
-              </p>
-
-              <a
-                href="/consejeria"
-                className="text-ibe-celeste font-medium hover:underline text-sm"
-              >
-                Solicitar consejería →
-              </a>
-            </div>
+            <a
+              href="/contacto"
+              className="text-center text-ibe-gris text-sm hover:text-ibe-celeste transition"
+            >
+              ← Volver a Contacto
+            </a>
           </form>
         </div>
       </section>

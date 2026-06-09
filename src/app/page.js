@@ -21,19 +21,14 @@ export default function Home() {
           <p className="text-lg md:text-xl text-ibe-gris mb-8">
             Una comunidad de fe, esperanza y amor para toda la familia.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Link
               href="/somos-ibe"
               className="bg-ibe-celeste hover:bg-ibe-azul text-white font-semibold px-8 py-3 rounded-full transition"
             >
               Conoce más
             </Link>
-            <Link
-              href="/contacto"
-              className="bg-ibe-amarillo hover:bg-yellow-400 text-ibe-azul font-semibold px-8 py-3 rounded-full transition"
-            >
-              Solicitar consejería
-            </Link>
+            
           </div>
         </div>
       </section>
