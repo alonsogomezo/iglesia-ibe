@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
@@ -11,8 +12,15 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="text-white font-bold text-xl tracking-wide">
-          Somos IBE
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logoibe.png"
+            alt="Somos IBE"
+            width={140}
+            height={40}
+            className="object-contain h-10 w-auto"
+            priority
+          />
         </Link>
 
         {/* Menú desktop */}
