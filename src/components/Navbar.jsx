@@ -22,6 +22,7 @@ export default function Navbar() {
           <li><Link href="/ministerios" className="hover:text-ibe-amarillo transition">Ministerios</Link></li>
           <li><Link href="/devocional" className="hover:text-ibe-amarillo transition">Devocional</Link></li>
           <li><Link href="/podcast" className="hover:text-ibe-amarillo transition">Podcast</Link></li>
+          <li><Link href="/testimonios" className="hover:text-ibe-amarillo transition">Testimonios</Link></li>
           <li><Link href="/contacto" className="hover:text-ibe-amarillo transition">Contacto</Link></li>
         </ul>
 
@@ -42,6 +43,7 @@ export default function Navbar() {
           <li><Link href="/ministerios" onClick={() => setMenuAbierto(false)}>Ministerios</Link></li>
           <li><Link href="/devocional" onClick={() => setMenuAbierto(false)}>Devocional</Link></li>
           <li><Link href="/podcast" onClick={() => setMenuAbierto(false)}>Podcast</Link></li>
+          <li><Link href="/testimonios" className="hover:text-ibe-amarillo transition">Testimonios</Link></li>
           <li><Link href="/contacto" onClick={() => setMenuAbierto(false)}>Contacto</Link></li>
         </ul>
       )}
