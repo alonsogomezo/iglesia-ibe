@@ -33,21 +33,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sobre nosotros */}
+      {/* Misión y Visión */}
       <section className="bg-white text-ibe-azul py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">¿Quiénes somos?</h2>
-          <p className="text-lg text-ibe-gris leading-relaxed">
-            Iglesia IBE es una comunidad cristiana comprometida con Dios y las personas.
-            Nos reunimos para adorar, crecer en la fe y servir a nuestra comunidad
-            con amor y propósito.
-          </p>
-          <Link
-            href="/somos-ibe"
-            className="inline-block mt-8 text-ibe-celeste font-semibold hover:underline"
-          >
-            Conoce nuestra historia →
-          </Link>
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="bg-ibe-celeste/10 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-ibe-celeste mb-4">Nuestra Misión</h3>
+              <p className="text-ibe-gris leading-relaxed">
+                Texto de la misión de la iglesia. Reemplaza este párrafo con el texto real.
+              </p>
+            </div>
+            <div className="bg-ibe-celeste/10 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-ibe-celeste mb-4">Nuestra Visión</h3>
+              <p className="text-ibe-gris leading-relaxed">
+                Texto de la visión de la iglesia. Reemplaza este párrafo con el texto real.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
