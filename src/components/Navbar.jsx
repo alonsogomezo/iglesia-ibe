@@ -31,6 +31,7 @@ export default function Navbar() {
           <li><Link href="/devocional" className="hover:text-ibe-amarillo transition">Devocional</Link></li>
           <li><Link href="/podcast" className="hover:text-ibe-amarillo transition">Podcast</Link></li>
           <li><Link href="/testimonios" className="hover:text-ibe-amarillo transition">Testimonios</Link></li>
+          <li><Link href="/oracion" className="hover:text-ibe-amarillo transition">Oración</Link></li>
           <li><Link href="/contacto" className="hover:text-ibe-amarillo transition">Contacto</Link></li>
         </ul>
 
