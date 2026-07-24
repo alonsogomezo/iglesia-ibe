@@ -14,11 +14,11 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
-            src="/logoibe.png"
+            src="/logo.png"
             alt="Somos IBE"
             width={140}
             height={40}
-            className="object-contain h-10 w-auto"
+            className="object-contain h-16 w-auto"
             priority
           />
         </Link>

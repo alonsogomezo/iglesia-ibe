@@ -7,7 +7,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative h-screen flex items-center justify-center text-white">
         <Image
-          src="/hero.png"
+          src="/hero1.png"
           alt="Iglesia IBE"
           fill
           className="object-cover"
