@@ -22,7 +22,7 @@ export default async function DevocionalDetalle({ params }) {
       <section className="bg-white py-20 px-4">
         <div className="max-w-3xl mx-auto">
           <p className="text-ibe-gris text-lg italic mb-8">{data.descripcion}</p>
-          <div className="text-ibe-azul leading-relaxed text-lg whitespace-pre-line">
+          <div className="text-gray-700 leading-relaxed text-lg whitespace-pre-line">
             {content}
           </div>
           <a

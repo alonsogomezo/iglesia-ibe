@@ -51,7 +51,7 @@ export default function Consejeria() {
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
 
             <div>
-              <label className="text-ibe-azul font-medium text-sm mb-1 block">
+              <label className="text-gray-700 font-medium text-sm mb-1 block">
                 Nombre *
               </label>
               <input
@@ -60,13 +60,13 @@ export default function Consejeria() {
                 value={form.nombre}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-ibe-azul focus:outline-none focus:border-ibe-celeste"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:border-ibe-celeste"
                 placeholder="Tu nombre completo"
               />
             </div>
 
             <div>
-              <label className="text-ibe-azul font-medium text-sm mb-1 block">
+              <label className="text-gray-700 font-medium text-sm mb-1 block">
                 Correo *
               </label>
               <input
@@ -75,13 +75,13 @@ export default function Consejeria() {
                 value={form.correo}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-ibe-azul focus:outline-none focus:border-ibe-celeste"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:border-ibe-celeste"
                 placeholder="tucorreo@gmail.com"
               />
             </div>
 
             <div>
-              <label className="text-ibe-azul font-medium text-sm mb-1 block">
+              <label className="text-gray-700 font-medium text-sm mb-1 block">
                 Teléfono *
               </label>
               <input
@@ -90,13 +90,13 @@ export default function Consejeria() {
                 value={form.telefono}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-ibe-azul focus:outline-none focus:border-ibe-celeste"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:border-ibe-celeste"
                 placeholder="8888-8888"
               />
             </div>
 
             <div>
-              <label className="text-ibe-azul font-medium text-sm mb-1 block">
+              <label className="text-gray-700 font-medium text-sm mb-1 block">
                 ¿En qué podemos ayudarte? *
               </label>
               <textarea
@@ -105,7 +105,7 @@ export default function Consejeria() {
                 onChange={handleChange}
                 required
                 rows={5}
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-ibe-azul focus:outline-none focus:border-ibe-celeste resize-none"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:border-ibe-celeste resize-none"
                 placeholder="Cuéntanos brevemente tu situación..."
               />
             </div>
@@ -113,7 +113,7 @@ export default function Consejeria() {
             <button
               type="submit"
               disabled={estado === "enviando"}
-              className="bg-ibe-celeste hover:bg-ibe-azul text-white font-semibold px-8 py-3 rounded-full transition disabled:opacity-50"
+              className="bg-ibe-celeste hover:bg-ibe-celeste/80 text-white font-semibold px-8 py-3 rounded-full transition disabled:opacity-50"
             >
               {estado === "enviando" ? "Enviando..." : "Enviar solicitud"}
             </button>

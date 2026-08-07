@@ -54,7 +54,7 @@ export default function Podcast() {
 
               {/* Contenido */}
               <div className="p-6">
-                <h2 className="text-xl font-bold text-ibe-azul mb-2">
+                <h2 className="text-xl font-bold text-gray-700 mb-2">
                   {episodio.titulo}
                 </h2>
 

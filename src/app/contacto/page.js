@@ -48,8 +48,9 @@ export default function Contacto() {
       {/* Contenido */}
       <section className="bg-white py-20 px-4">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+
           {/* Información */}
-          <div className="flex flex-col gap-6 text-ibe-azul">
+          <div className="flex flex-col gap-6 text-gray-700">
             <h2 className="text-2xl font-bold">Encuéntranos</h2>
             <div>
               <p className="font-semibold">📍 Dirección</p>
@@ -71,12 +72,12 @@ export default function Contacto() {
 
           {/* Formulario */}
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <h2 className="text-2xl font-bold text-ibe-azul">
+            <h2 className="text-2xl font-bold text-gray-700">
               Registra tu visita
             </h2>
 
             <div>
-              <label className="text-ibe-azul font-medium text-sm mb-1 block">
+              <label className="text-gray-700 font-medium text-sm mb-1 block">
                 Nombre *
               </label>
               <input
@@ -85,13 +86,13 @@ export default function Contacto() {
                 value={form.nombre}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-ibe-azul focus:outline-none focus:border-ibe-celeste"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:border-ibe-celeste"
                 placeholder="Tu nombre completo"
               />
             </div>
 
             <div>
-              <label className="text-ibe-azul font-medium text-sm mb-1 block">
+              <label className="text-gray-700 font-medium text-sm mb-1 block">
                 Correo *
               </label>
               <input
@@ -100,13 +101,13 @@ export default function Contacto() {
                 value={form.correo}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-ibe-azul focus:outline-none focus:border-ibe-celeste"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:border-ibe-celeste"
                 placeholder="tucorreo@gmail.com"
               />
             </div>
 
             <div>
-              <label className="text-ibe-azul font-medium text-sm mb-1 block">
+              <label className="text-gray-700 font-medium text-sm mb-1 block">
                 Teléfono *
               </label>
               <input
@@ -115,7 +116,7 @@ export default function Contacto() {
                 value={form.telefono}
                 onChange={handleChange}
                 required
-                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-ibe-azul focus:outline-none focus:border-ibe-celeste"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 focus:outline-none focus:border-ibe-celeste"
                 placeholder="8888-8888"
               />
             </div>
@@ -123,7 +124,7 @@ export default function Contacto() {
             <button
               type="submit"
               disabled={estado === "enviando"}
-              className="bg-ibe-celeste hover:bg-ibe-azul text-white font-semibold px-8 py-3 rounded-full transition disabled:opacity-50"
+              className="bg-ibe-celeste hover:bg-ibe-celeste/80 text-white font-semibold px-8 py-3 rounded-full transition disabled:opacity-50"
             >
               {estado === "enviando" ? "Enviando..." : "Enviar"}
             </button>
@@ -143,7 +144,6 @@ export default function Contacto() {
               <p className="text-ibe-gris text-sm mb-2">
                 ¿Necesitas hablar con alguien?
               </p>
-
               <a
                 href="/consejeria"
                 className="text-ibe-celeste font-medium hover:underline text-sm"

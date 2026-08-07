@@ -36,7 +36,7 @@ export default function Devocional() {
               className="border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition"
             >
               <p className="text-ibe-gris text-sm mb-2">{devocional.fecha}</p>
-              <h2 className="text-xl font-bold text-ibe-azul mb-2">
+              <h2 className="text-xl font-bold text-gray-700 mb-2">
                 {devocional.titulo}
               </h2>
               <p className="text-ibe-gris">{devocional.descripcion}</p>

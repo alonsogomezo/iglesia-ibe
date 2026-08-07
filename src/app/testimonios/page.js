@@ -27,7 +27,6 @@ const testimoniosInstagram = [
 ];
 
 export default function Testimonios() {
-  // Carga el script de Instagram para que los reels se vean correctamente
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://www.instagram.com/embed.js";
@@ -69,9 +68,9 @@ export default function Testimonios() {
       </section>
 
       {/* Videos de YouTube */}
-      <section className="bg-ibe-azul py-20 px-4">
+      <section className="bg-gray-50 py-20 px-4">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-700 text-center mb-12">
             Videos de Testimonios
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -83,7 +82,7 @@ export default function Testimonios() {
                   title={video.titulo}
                   allowFullScreen
                 ></iframe>
-                <p className="text-white text-sm mt-2 text-center">{video.titulo}</p>
+                <p className="text-ibe-gris text-sm mt-2 text-center">{video.titulo}</p>
               </div>
             ))}
           </div>
@@ -93,7 +92,7 @@ export default function Testimonios() {
       {/* Reels de Instagram */}
       <section className="bg-white py-20 px-4">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-ibe-azul text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-700 text-center mb-12">
             Reels de Instagram
           </h2>
           <div className="flex flex-col gap-8 items-center">
