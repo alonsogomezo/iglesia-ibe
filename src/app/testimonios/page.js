@@ -1,7 +1,3 @@
-"use client";
-
-import { useEffect } from "react";
-
 const testimoniosTexto = [
   {
     nombre: "María G.",
@@ -17,27 +13,7 @@ const testimoniosTexto = [
   },
 ];
 
-const testimoniosYoutube = [
-  { id: "TU_VIDEO_ID_AQUI", titulo: "Testimonio de fe - Familia Pérez" },
-  { id: "TU_VIDEO_ID_AQUI_2", titulo: "Testimonio de fe - Juan Martínez" },
-];
-
-const testimoniosInstagram = [
-  "https://www.instagram.com/reel/TU_REEL_ID_AQUI/",
-];
-
 export default function Testimonios() {
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://www.instagram.com/embed.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <>
       {/* Hero */}
@@ -64,48 +40,6 @@ export default function Testimonios() {
               </p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Videos de YouTube */}
-      <section className="bg-gray-50 py-20 px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-700 text-center mb-12">
-            Videos de Testimonios
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimoniosYoutube.map((video) => (
-              <div key={video.id}>
-                <iframe
-                  className="w-full aspect-video rounded-2xl"
-                  src={`https://www.youtube.com/embed/${video.id}`}
-                  title={video.titulo}
-                  allowFullScreen
-                ></iframe>
-                <p className="text-ibe-gris text-sm mt-2 text-center">{video.titulo}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Reels de Instagram */}
-      <section className="bg-white py-20 px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-700 text-center mb-12">
-            Reels de Instagram
-          </h2>
-          <div className="flex flex-col gap-8 items-center">
-            {testimoniosInstagram.map((link) => (
-              <blockquote
-                key={link}
-                className="instagram-media"
-                data-instgrm-permalink={link}
-                data-instgrm-version="14"
-                style={{ maxWidth: "540px", width: "100%" }}
-              ></blockquote>
-            ))}
-          </div>
         </div>
       </section>
     </>
