@@ -17,10 +17,10 @@ export default function Home() {
         <div className="absolute inset-0 bg-gray-900/60" />
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
-            Bienvenido a Iglesia IBE
+            Bienvenido a Iglesia Bautista Emanuel
           </h1>
           <p className="text-lg md:text-xl text-gray-200">
-            Una comunidad de fe, esperanza y amor para toda la familia.
+            Una comunidad de fe, esperanza y amor.
           </p>
         </div>
       </section>
