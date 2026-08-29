@@ -1,3 +1,5 @@
+import { FaYoutube, FaSpotify } from "react-icons/fa";
+
 const episodios = [
   {
     titulo: "Episodio 1: Mauricio Bustamante",
@@ -7,6 +9,15 @@ const episodios = [
     youtube:
       "https://www.youtube.com/watch?v=YBmMEKw_y6I&list=PL2jiqUSjnxtTj31nKBKcACMgGI0yi9QZh",
     spotify: "https://open.spotify.com/episode/4354RGVqbI5cR8wC60V2C2",
+  },
+  {
+    titulo: "Episodio 2: Abel Pereira / Andrea Arcia",
+    descripcion:
+      "Abigail Pereira es una niña que desde el día 2 de su vida, enfrentó una serie de complicaciones de salud que la llevaron al borde de la muerte. Sus padres, Abel Pereira y Andrea Arcia, nos cuentan cómo Dios les permitió salir adelante, manteniendo una fe intacta en medio de la prueba.",
+    youtubeId: "R_PEb3-uvEc",
+    youtube:
+      "https://www.youtube.com/watch?v=R_PEb3-uvEc&list=PL2jiqUSjnxtTj31nKBKcACMgGI0yi9QZh&index=1",
+    spotify: "https://open.spotify.com/episode/23uWVZNdlhcwfY4u81AEih",
   },
 ];
 
@@ -62,23 +73,25 @@ export default function Podcast() {
                   {episodio.descripcion}
                 </p>
 
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-3 mt-5">
                   <a
                     href={episodio.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-medium px-5 py-2 rounded-full transition"
+                    className="inline-flex items-center gap-2 bg-ibe-celeste hover:bg-ibe-celeste/80 hover:scale-105 text-white text-sm font-semibold px-6 py-2.5 rounded-full transition-all duration-200 shadow-sm"
                   >
-                    ▶️ Ver en YouTube
+                    <FaYoutube className="text-base" />
+                    Ver en YouTube
                   </a>
 
                   <a
                     href={episodio.spotify}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-medium px-5 py-2 rounded-full transition"
+                    className="inline-flex items-center gap-2 border-2 border-ibe-celeste hover:bg-ibe-celeste text-ibe-celeste hover:text-white text-sm font-semibold px-6 py-2.5 rounded-full transition-all duration-200"
                   >
-                    🎧 Escuchar en Spotify
+                    <FaSpotify className="text-base" />
+                    Escuchar en Spotify
                   </a>
                 </div>
               </div>
