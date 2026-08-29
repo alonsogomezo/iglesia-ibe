@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { FaInstagram } from "react-icons/fa";
 
 const ministerios = [
   {
     nombre: "Juventud Dinámica",
-    descripcion: "Un espacio donde jóvenes de 12 a 17 años descubren su identidad en Dios, crecen en fe, construyen comunidad y son equipados para vivir con propósito.",    imagen: "/ministerios/jd.png",
+    descripcion:
+      "Un espacio donde jóvenes de 12 a 17 años descubren su identidad en Dios, crecen en fe, construyen comunidad y son equipados para vivir con propósito.",
+    imagen: "/ministerios/jd.png",
     instagram: "https://www.instagram.com/jd_ibe",
   },
   {
@@ -107,8 +110,9 @@ export default function Ministerios() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-2 bg-ibe-celeste hover:bg-ibe-celeste/80 text-white text-sm font-medium px-4 py-2 rounded-full transition"
+                    className="inline-flex items-center gap-2 border-2 border-ibe-celeste hover:bg-ibe-celeste text-ibe-celeste hover:text-white text-sm font-semibold px-5 py-2 rounded-full transition-all duration-200"
                   >
+                    <FaInstagram className="text-base" />
                     Instagram
                   </a>
                 )}
