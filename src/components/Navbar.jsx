@@ -30,7 +30,6 @@ export default function Navbar() {
           <li><Link href="/ministerios" className="hover:text-white/70 transition">Ministerios</Link></li>
           <li><Link href="/devocional" className="hover:text-white/70 transition">Devocional</Link></li>
           <li><Link href="/podcast" className="hover:text-white/70 transition">Podcast</Link></li>
-          <li><Link href="/testimonios" className="hover:text-white/70 transition">Testimonios</Link></li>
           <li><Link href="/oracion" className="hover:text-white/70 transition">Oración</Link></li>
           <li><Link href="/contacto" className="hover:text-white/70 transition">Contacto</Link></li>
         </ul>
@@ -52,7 +51,6 @@ export default function Navbar() {
           <li><Link href="/ministerios" onClick={() => setMenuAbierto(false)}>Ministerios</Link></li>
           <li><Link href="/devocional" onClick={() => setMenuAbierto(false)}>Devocional</Link></li>
           <li><Link href="/podcast" onClick={() => setMenuAbierto(false)}>Podcast</Link></li>
-          <li><Link href="/testimonios" onClick={() => setMenuAbierto(false)}>Testimonios</Link></li>
           <li><Link href="/oracion" onClick={() => setMenuAbierto(false)}>Oración</Link></li>
           <li><Link href="/contacto" onClick={() => setMenuAbierto(false)}>Contacto</Link></li>
         </ul>
