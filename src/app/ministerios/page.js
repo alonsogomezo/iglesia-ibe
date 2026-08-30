@@ -70,7 +70,7 @@ export default function Ministerios() {
         </h1>
 
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Descubre los ministerios de Iglesia IBE y encuentra tu lugar en la
+          Descubre los ministerios de la Iglesia Bautista Emanuel y encuentra tu lugar en la
           comunidad.
         </p>
       </section>

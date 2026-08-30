@@ -30,7 +30,9 @@ export default function Podcast() {
           Más Allá de lo Imposible
         </h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Escucha nuestros mensajes y enseñanzas donde quieras.
+          Este podcast reúne historias de personas comunes que atravesaron momentos difíciles (crisis físicas, económicas y situaciones inesperadas) y descubrieron a un Dios extraordinario que transformó su perspectiva y su vida.
+
+          ¡Espera un nuevo episodio cada mes!
         </p>
       </section>
 
