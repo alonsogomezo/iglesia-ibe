@@ -57,12 +57,6 @@ export default function Podcast() {
                   className="w-full object-cover"
                 />
 
-                {/* Botón play encima de la miniatura */}
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/40 transition">
-                  <div className="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center">
-                    <span className="text-white text-2xl ml-1">▶</span>
-                  </div>
-                </div>
               </a>
 
               {/* Contenido */}

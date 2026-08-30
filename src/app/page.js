@@ -20,7 +20,7 @@ export default function Home() {
             Bienvenido a Iglesia Bautista Emanuel
           </h1>
           <p className="text-lg md:text-xl text-gray-200">
-            Una comunidad de fe, esperanza y amor.
+            Un lugar donde se predican las Buenas Nuevas de Jesucristo.
           </p>
         </div>
       </section>

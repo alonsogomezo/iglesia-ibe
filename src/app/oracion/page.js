@@ -40,7 +40,7 @@ export default function Oracion() {
       <section className="bg-ibe-celeste text-white py-20 px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">Peticiones de Oración</h1>
         <p className="text-lg text-white/80 max-w-2xl mx-auto">
-          Queremos orar contigo. Comparte tu petición y la iglesia estará intercediendo por ti.
+          Queremos orar contigo. Comparte tu petición y estaremos intercediendo por ti.
         </p>
       </section>
 
