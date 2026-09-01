@@ -11,7 +11,7 @@ export default function Home() {
           src="/hero1.png"
           alt="Iglesia IBE"
           fill
-          className="object-cover"
+          className="object-cover object-center"
           priority
         />
         <div className="absolute inset-0 bg-gray-900/60" />
@@ -104,13 +104,12 @@ export default function Home() {
       </section>
 
       {/* Horarios */}
-      {/* Horarios */}
-      <section className="relative py-20 px-4">
+      <section className="relative min-h-[400px] py-20 px-4">
         <Image
           src="/home_culto.jpg"
           alt="Horarios de culto"
           fill
-          className="object-cover"
+          className="object-cover object-[center_40%]"
         />
         <div className="absolute inset-0 bg-gray-900/60" />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
