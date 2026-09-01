@@ -5,18 +5,21 @@ export default function Footer() {
   return (
     <footer className="bg-ibe-celeste text-white py-12 mt-auto">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-
         {/* Columna 1: Información / Eslogan */}
-        <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <h3 className="font-semibold text-lg mb-3 tracking-wide">Somos IBE</h3>
+        <div className="flex flex-col items-start">
+          <h3 className="font-semibold text-lg mb-3 tracking-wide">
+            Somos IBE
+          </h3>
           <p className="text-white/80 text-sm leading-relaxed max-w-xs">
-            Un lugar donde se predican las Buenas Nuevas de Jesucristo.  
+            Un lugar donde se predican las Buenas Nuevas de Jesucristo.
           </p>
         </div>
 
         {/* Columna 2: informacion */}
-        <div className="flex flex-col items-center md:items-start">
-          <h3 className="font-semibold text-lg mb-3 tracking-wide">Información</h3>
+        <div className="flex flex-col items-start">
+          <h3 className="font-semibold text-lg mb-3 tracking-wide">
+            Información
+          </h3>
           <ul className="flex flex-col gap-2.5 text-sm text-white/80">
             <li className="flex items-start gap-2.5">
               <HiLocationMarker className="text-lg shrink-0 mt-0.5" />
@@ -28,8 +31,8 @@ export default function Footer() {
             </li>
             <li className="flex items-center gap-2.5">
               <HiMail className="text-lg shrink-0" />
-              <a 
-                href="mailto:somosibe72@gmail.com" 
+              <a
+                href="mailto:somosibe72@gmail.com"
                 className="hover:text-white transition-colors"
               >
                 somosibe72@gmail.com
@@ -39,7 +42,7 @@ export default function Footer() {
         </div>
 
         {/* Columna 3: Redes Sociales */}
-        <div className="flex flex-col items-center md:items-start">
+        <div className="flex flex-col items-start">
           <h3 className="font-semibold text-lg mb-3 tracking-wide">Síguenos</h3>
           <div className="flex flex-col gap-2.5">
             <a
@@ -83,12 +86,11 @@ export default function Footer() {
             </a>
           </div>
         </div>
-
       </div>
 
       {/* Pie inferior con divisor */}
       <div className="max-w-6xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-center text-white/60 text-xs">
-        © {new Date().getFullYear()} Iglesia IBE. Todos los derechos reservados.
+        © {new Date().getFullYear()} Iglesia Bautista Emanuel. Todos los derechos reservados.
       </div>
     </footer>
   );
