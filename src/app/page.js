@@ -104,20 +104,22 @@ export default function Home() {
       </section>
 
       {/* Horarios */}
-      <section className="relative min-h-[400px] py-20 px-4">
-        <Image
-          src="/home_culto.jpg"
-          alt="Horarios de culto"
-          fill
-          className="object-cover object-[center_40%]"
-        />
-        <div className="absolute inset-0 bg-gray-900/60" />
+      <section className="relative min-h-[500px] py-20 px-4">
+        <div className="hidden md:block">
+          <Image
+            src="/home_culto.jpg"
+            alt="Horarios de culto"
+            fill
+            className="object-cover object-center"
+          />
+        </div>
+        <div className="hidden md:block absolute inset-0 bg-gray-900/60" />
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-12">
             Horarios de Culto
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-2xl p-8 flex flex-col items-center gap-4">
+            <div className="bg-white border-2 border-ibe-celeste/30 rounded-2xl p-8 flex flex-col items-center gap-4">
               <FaClock className="text-4xl text-ibe-celeste" />
               <h3 className="text-xl font-bold text-gray-700">
                 Casa de Oración
@@ -125,8 +127,7 @@ export default function Home() {
               <p className="text-ibe-gris">Miércoles</p>
               <p className="text-ibe-celeste font-bold text-2xl">7:00 PM</p>
             </div>
-
-            <div className="bg-white rounded-2xl p-8 flex flex-col items-center gap-4">
+            <div className="bg-white border-2 border-ibe-celeste/30 rounded-2xl p-8 flex flex-col items-center gap-4">
               <FaClock className="text-4xl text-ibe-celeste" />
               <h3 className="text-xl font-bold text-gray-700">
                 Culto Dominical
