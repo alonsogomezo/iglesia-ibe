@@ -239,7 +239,7 @@ export default function SomosIBE() {
               },
               {
                 texto:
-                  "Creemos que a través de la Biblia Dios revela su voluntad para los seres humanos.",
+                  "Creemos que a través de la Biblia, Dios revela su voluntad para los seres humanos.",
                 referencia: "Juan 8:40",
               },
               {
