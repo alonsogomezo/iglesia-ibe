@@ -35,7 +35,9 @@ export default function Devocional() {
               href={`/devocional/${devocional.slug}`}
               className="border border-gray-100 rounded-2xl p-8 shadow-sm hover:shadow-md transition"
             >
-              <p className="text-ibe-gris text-sm mb-2">{devocional.fecha}</p>
+              <p className="text-ibe-gris text-sm mb-2">
+                {new Date(devocional.fecha).toLocaleDateString("es-CR")}
+              </p>
               <h2 className="text-xl font-bold text-gray-700 mb-2">
                 {devocional.titulo}
               </h2>
