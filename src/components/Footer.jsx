@@ -94,7 +94,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://open.spotify.com"
+              href="https://open.spotify.com/show/033ob90gJEYOJFEsuOJAeh"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white/10 border border-white/15 text-xs font-medium text-white/90 hover:bg-white hover:text-ibe-celeste transition-all duration-200"

@@ -69,8 +69,7 @@ export default function SomosIBE() {
                 Nuestra Misión
               </h2>
               <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                Glorificar a Dios y anunciar Su salvación a todas las naciones,
-                compartiendo la esperanza transformadora del Evangelio.
+                Glorificar a Dios y anunciar Su salvación a todas las naciones.
               </p>
             </div>
 
@@ -80,8 +79,8 @@ export default function SomosIBE() {
                 Nuestra Visión
               </h2>
               <p className="text-gray-600 leading-relaxed text-sm md:text-base">
-                Reproducir discípulos de Jesús y equiparlos integralmente para
-                cumplir la Gran Comisión en su vida cotidiana.
+                Reproducir discípulos de Jesús y equiparlos para
+                cumplir la Gran Comisión.
               </p>
             </div>
           </div>
