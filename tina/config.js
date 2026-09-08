@@ -56,6 +56,11 @@ export default defineConfig({
             label: "Imagen (opcional)",
           },
           {
+            type: "string",
+            name: "pastor",
+            label: "Pastor",
+          },
+          {
             type: "rich-text",
             name: "body",
             label: "Contenido",

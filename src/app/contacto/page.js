@@ -293,7 +293,6 @@ export default function Contacto() {
                     }
                     required
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 transition-colors focus:outline-none focus:border-ibe-celeste focus:ring-1 focus:ring-ibe-celeste"
-                    placeholder="Ej. Juan Pérez"
                   />
                 </div>
 
@@ -309,7 +308,6 @@ export default function Contacto() {
                     }
                     required
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 transition-colors focus:outline-none focus:border-ibe-celeste focus:ring-1 focus:ring-ibe-celeste"
-                    placeholder="tucorreo@ejemplo.com"
                   />
                 </div>
 
@@ -325,7 +323,6 @@ export default function Contacto() {
                     }
                     required
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 transition-colors focus:outline-none focus:border-ibe-celeste focus:ring-1 focus:ring-ibe-celeste"
-                    placeholder="8888-8888"
                   />
                 </div>
 
@@ -384,7 +381,6 @@ export default function Contacto() {
                     }
                     required
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 transition-colors focus:outline-none focus:border-ibe-celeste focus:ring-1 focus:ring-ibe-celeste"
-                    placeholder="Ej. Juan Pérez"
                   />
                 </div>
 
@@ -403,7 +399,6 @@ export default function Contacto() {
                     }
                     required
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 transition-colors focus:outline-none focus:border-ibe-celeste focus:ring-1 focus:ring-ibe-celeste"
-                    placeholder="tucorreo@ejemplo.com"
                   />
                 </div>
 
@@ -422,7 +417,6 @@ export default function Contacto() {
                     }
                     required
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 transition-colors focus:outline-none focus:border-ibe-celeste focus:ring-1 focus:ring-ibe-celeste"
-                    placeholder="8888-8888"
                   />
                 </div>
 
@@ -441,7 +435,6 @@ export default function Contacto() {
                     required
                     rows={4}
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 transition-colors focus:outline-none focus:border-ibe-celeste focus:ring-1 focus:ring-ibe-celeste resize-none"
-                    placeholder="Cuéntanos brevemente tu situación..."
                   />
                 </div>
 
@@ -501,7 +494,6 @@ export default function Contacto() {
                     }
                     required
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 transition-colors focus:outline-none focus:border-ibe-celeste focus:ring-1 focus:ring-ibe-celeste"
-                    placeholder="Ej. Juan Pérez"
                   />
                 </div>
 
@@ -520,7 +512,6 @@ export default function Contacto() {
                     }
                     required
                     className="w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-700 transition-colors focus:outline-none focus:border-ibe-celeste focus:ring-1 focus:ring-ibe-celeste"
-                    placeholder="8888-8888"
                   />
                 </div>
 

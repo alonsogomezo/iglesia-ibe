@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import Image from "next/image";
 import Link from "next/link";
-import { FaCalendarAlt, FaBookOpen, FaArrowLeft } from "react-icons/fa";
+import { FaCalendarAlt, FaBookOpen, FaArrowLeft, FaUser } from "react-icons/fa";
 
 export default async function DevocionalDetalle({ params }) {
   const { slug } = await params;
@@ -18,17 +18,15 @@ export default async function DevocionalDetalle({ params }) {
 
   return (
     <>
-      {/* =========================
-          HERO
-      ========================== */}
+      {/* HERO */}
       <section className="relative overflow-hidden bg-ibe-celeste text-white">
-        {/* Decoración sutil */}
         <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/5" />
         <div className="absolute -left-32 bottom-[-120px] h-80 w-80 rounded-full bg-white/5" />
 
         <div className="relative max-w-5xl mx-auto px-6 py-20 md:py-24">
           <div className="max-w-3xl mx-auto text-center">
-            {/* Etiqueta / Fecha */}
+
+            {/* Fecha */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-6">
               <FaCalendarAlt className="text-xs text-white/80" />
               <span className="text-xs font-semibold tracking-[0.15em] uppercase text-white/90">
@@ -45,8 +43,18 @@ export default async function DevocionalDetalle({ params }) {
               {data.titulo}
             </h1>
 
-            {/* Subtítulo o lema decorativo */}
-            <div className="flex items-center justify-center gap-3 mt-4">
+            {/* Pastor */}
+            {data.pastor && (
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mt-2">
+                <FaUser className="text-xs text-white/80" />
+                <span className="text-xs font-medium text-white/90">
+                  {data.pastor}
+                </span>
+              </div>
+            )}
+
+            {/* Decoración */}
+            <div className="flex items-center justify-center gap-3 mt-6">
               <div className="h-px w-12 bg-white/30" />
               <FaBookOpen className="text-white/60 text-sm" />
               <div className="h-px w-12 bg-white/30" />
@@ -55,12 +63,11 @@ export default async function DevocionalDetalle({ params }) {
         </div>
       </section>
 
-      {/* =========================
-          CONTENIDO DEL DEVOCIONAL
-      ========================== */}
+      {/* CONTENIDO */}
       <section className="bg-white py-16 px-6">
         <div className="max-w-3xl mx-auto">
-          {/* Imagen destacada (opcional) */}
+
+          {/* Imagen */}
           {data.imagen && (
             <div className="relative w-full h-72 md:h-[420px] rounded-3xl overflow-hidden shadow-lg border border-gray-100 mb-12">
               <Image
@@ -73,7 +80,7 @@ export default async function DevocionalDetalle({ params }) {
             </div>
           )}
 
-          {/* Descripción / Versículo clave */}
+          {/* Descripción */}
           {data.descripcion && (
             <div className="relative border-l-4 border-ibe-celeste bg-gray-50/80 rounded-r-2xl p-6 md:p-8 mb-10 shadow-sm">
               <p className="text-gray-700 text-lg md:text-xl italic font-serif leading-relaxed">
