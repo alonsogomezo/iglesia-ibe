@@ -3,109 +3,99 @@ import path from "path";
 import matter from "gray-matter";
 import Image from "next/image";
 import Link from "next/link";
-import { FaCalendarAlt, FaBookOpen, FaArrowLeft, FaUser } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 export default async function DevocionalDetalle({ params }) {
   const { slug } = await params;
 
   const carpeta = path.join(process.cwd(), "content/devocionales");
-  const archivo = fs.readFileSync(
-    path.join(carpeta, `${slug}.md`),
-    "utf-8"
-  );
+  const archivo = fs.readFileSync(path.join(carpeta, `${slug}.md`), "utf-8");
 
   const { data, content } = matter(archivo);
 
   return (
-    <>
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-ibe-celeste text-white">
-        <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/5" />
-        <div className="absolute -left-32 bottom-[-120px] h-80 w-80 rounded-full bg-white/5" />
+    <div className="bg-gray-100 min-h-screen py-10 px-4 md:px-8">
+      {/* Botón de retorno superior */}
+      <div className="max-w-4xl mx-auto mb-6">
+        <Link
+          href="/devocional"
+          className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-600 hover:text-ibe-celeste transition-colors"
+        >
+          <FaArrowLeft className="text-xs" />
+          <span>Volver a devocionales</span>
+        </Link>
+      </div>
 
-        <div className="relative max-w-5xl mx-auto px-6 py-20 md:py-24">
-          <div className="max-w-3xl mx-auto text-center">
+      {/* HOJA ESTILO PERIÓDICO */}
+      <article className="max-w-4xl mx-auto bg-white border border-gray-200 shadow-xl p-6 sm:p-12 md:p-16 text-gray-900 font-serif">
+        {/* Encabezado Superior */}
+        <div className="text-center mb-6">
+          <p className="text-xs font-sans font-bold tracking-[0.25em] text-gray-500 uppercase mb-4">
+            Devocional Somos IBE
+          </p>
 
-            {/* Fecha */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md mb-6">
-              <FaCalendarAlt className="text-xs text-white/80" />
-              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-white/90">
-                {new Date(data.fecha).toLocaleDateString("es-CR", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </span>
-            </div>
-
-            {/* Título */}
-            <h1 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight mb-6">
+          {/* Título entre líneas horizontales dobles */}
+          <div className="border-y-2 border-gray-900 py-3 my-2">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-gray-900 font-serif leading-tight">
               {data.titulo}
             </h1>
+          </div>
 
-            {/* Pastor */}
-            {data.pastor && (
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mt-2">
-                <FaUser className="text-xs text-white/80" />
-                <span className="text-xs font-medium text-white/90">
-                  {data.pastor}
-                </span>
+          {/* Metadatos (Autor y Fecha) */}
+          <div className="flex items-center justify-center gap-4 text-sm font-sans text-gray-700 mt-4 tracking-wide">
+            <span>Por {data.pastor || "Somos IBE"}</span>
+            <span>—</span>
+            <span>
+              {new Date(data.fecha).toLocaleDateString("es-CR", {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+              })}
+            </span>
+          </div>
+        </div>
+
+        {/* CONTENIDO PRINCIPAL A 2 COLUMNAS */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-8 text-gray-800 leading-relaxed text-sm sm:text-base text-justify">
+          {/* Columna Izquierda */}
+          <div className="flex flex-col gap-6">
+            {/* Cita Destacada (Si hay descripción) */}
+            {data.descripcion && (
+              <div className="border border-gray-900 p-5 bg-gray-50/50 shadow-sm text-center">
+                <p className="font-semibold italic text-gray-900 text-sm leading-snug">
+                  "{data.descripcion}"
+                </p>
               </div>
             )}
 
-            {/* Decoración */}
-            <div className="flex items-center justify-center gap-3 mt-6">
-              <div className="h-px w-12 bg-white/30" />
-              <FaBookOpen className="text-white/60 text-sm" />
-              <div className="h-px w-12 bg-white/30" />
-            </div>
+            <div className="whitespace-pre-line space-y-4">{content}</div>
+          </div>
+
+          {/* Columna Derecha */}
+          <div className="flex flex-col gap-6">
+            {/* Imagen del Devocional */}
+            {data.imagen && (
+              <div className="relative w-full h-64 sm:h-80 border border-gray-300 p-1 bg-white shadow-sm">
+                <div className="relative w-full h-full">
+                  <Image
+                    src={data.imagen}
+                    alt={data.titulo}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      </section>
 
-      {/* CONTENIDO */}
-      <section className="bg-white py-16 px-6">
-        <div className="max-w-3xl mx-auto">
-
-          {/* Imagen */}
-          {data.imagen && (
-            <div className="relative w-full h-72 md:h-[420px] rounded-3xl overflow-hidden shadow-lg border border-gray-100 mb-12">
-              <Image
-                src={data.imagen}
-                alt={data.titulo}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          )}
-
-          {/* Descripción */}
-          {data.descripcion && (
-            <div className="relative border-l-4 border-ibe-celeste bg-gray-50/80 rounded-r-2xl p-6 md:p-8 mb-10 shadow-sm">
-              <p className="text-gray-700 text-lg md:text-xl italic font-serif leading-relaxed">
-                "{data.descripcion}"
-              </p>
-            </div>
-          )}
-
-          {/* Texto principal */}
-          <article className="text-gray-700 leading-relaxed text-base md:text-lg whitespace-pre-line space-y-4">
-            {content}
-          </article>
-
-          {/* Botón de retorno */}
-          <div className="mt-14 pt-8 border-t border-gray-100 flex justify-start">
-            <Link
-              href="/devocional"
-              className="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-6 py-3 text-xs font-bold text-gray-700 shadow-sm transition-all duration-200 hover:border-ibe-celeste hover:bg-ibe-celeste hover:text-white"
-            >
-              <FaArrowLeft className="text-xs" />
-              <span>Volver a devocionales</span>
-            </Link>
-          </div>
+        {/* Pie de la Hoja Editorial */}
+        <div className="mt-16 pt-6 border-t border-gray-300 flex flex-col sm:flex-row items-center justify-between text-xs font-sans text-gray-500 gap-2">
+          <span>Iglesia Bautista Emanuel</span>
+          <span className="italic">San José, Costa Rica</span>
         </div>
-      </section>
-    </>
+      </article>
+    </div>
   );
 }
