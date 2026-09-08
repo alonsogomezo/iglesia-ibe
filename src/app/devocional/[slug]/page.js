@@ -31,19 +31,19 @@ export default async function DevocionalDetalle({ params }) {
         {/* Encabezado Superior */}
         <div className="text-center mb-6">
           <p className="text-xs font-sans font-bold tracking-[0.25em] text-gray-500 uppercase mb-4">
-            Devocional Somos IBE
+            DEVOCIONAL SOMOS IBE
           </p>
 
           {/* Título entre líneas horizontales dobles */}
           <div className="border-y-2 border-gray-900 py-3 my-2">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-gray-900 font-serif leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight text-gray-900 font-serif leading-none">
               {data.titulo}
             </h1>
           </div>
 
           {/* Metadatos (Autor y Fecha) */}
           <div className="flex items-center justify-center gap-4 text-sm font-sans text-gray-700 mt-4 tracking-wide">
-            <span>Por {data.pastor || "Somos IBE"}</span>
+            <span>Por {data.pastor || "Francisco Arroyo"}</span>
             <span>—</span>
             <span>
               {new Date(data.fecha).toLocaleDateString("es-CR", {
@@ -55,39 +55,40 @@ export default async function DevocionalDetalle({ params }) {
           </div>
         </div>
 
-        {/* CONTENIDO PRINCIPAL A 2 COLUMNAS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mt-8 text-gray-800 leading-relaxed text-sm sm:text-base text-justify">
-          {/* Columna Izquierda */}
-          <div className="flex flex-col gap-6">
-            {/* Cita Destacada (Si hay descripción) */}
-            {data.descripcion && (
-              <div className="border border-gray-900 p-5 bg-gray-50/50 shadow-sm text-center">
-                <p className="font-semibold italic text-gray-900 text-sm leading-snug">
-                  "{data.descripcion}"
-                </p>
-              </div>
-            )}
+        {/* CONTENIDO FLUIDO (ESTILO PERIODÍSTICO) */}
+        <div className="mt-8 text-gray-800 leading-relaxed text-sm sm:text-base text-justify font-serif">
+          
+          {/* Cita Flotante a la Izquierda */}
+          {data.descripcion && (
+            <div className="float-left w-full sm:w-[48%] mr-6 mb-4 border border-gray-900 p-4 bg-gray-50/50 shadow-sm text-center">
+              <p className="font-semibold italic text-gray-900 text-xs sm:text-sm leading-snug">
+                "{data.descripcion}"
+              </p>
+            </div>
+          )}
 
-            <div className="whitespace-pre-line space-y-4">{content}</div>
+          {/* Imagen Flotante a la Derecha */}
+          {data.imagen && (
+            <div className="float-right w-full sm:w-[48%] ml-6 mb-4 border border-gray-300 p-1 bg-white shadow-sm">
+              <div className="relative w-full h-56 sm:h-64">
+                <Image
+                  src={data.imagen}
+                  alt={data.titulo}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Texto Principal (Fluye alrededor de la cita e imagen y luego se expande abajo) */}
+          <div className="whitespace-pre-line space-y-4">
+            {content}
           </div>
 
-          {/* Columna Derecha */}
-          <div className="flex flex-col gap-6">
-            {/* Imagen del Devocional */}
-            {data.imagen && (
-              <div className="relative w-full h-64 sm:h-80 border border-gray-300 p-1 bg-white shadow-sm">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={data.imagen}
-                    alt={data.titulo}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-              </div>
-            )}
-          </div>
+          {/* Limpiador de floats para el pie de página */}
+          <div className="clear-both" />
         </div>
 
         {/* Pie de la Hoja Editorial */}
