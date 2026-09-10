@@ -7,45 +7,31 @@ import {
   FaCalendarAlt,
   FaArrowRight,
   FaUser,
+  FaFolderOpen,
 } from "react-icons/fa";
 
 export default function Devocional() {
   const carpeta = path.join(process.cwd(), "content/devocionales");
 
-  if (!fs.existsSync(carpeta)) {
-    return (
-      <>
-        <section className="relative overflow-hidden bg-ibe-celeste text-white">
-          <div className="relative max-w-5xl mx-auto px-6 py-20 md:py-24">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
-              Devocionales <br />
-              <span className="italic font-light">Diarios</span>
-            </h1>
-          </div>
-        </section>
-        <section className="bg-white py-20 px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <p className="text-gray-500">No hay devocionales publicados aún.</p>
-          </div>
-        </section>
-      </>
-    );
+  // Obtener devocionales si la carpeta existe
+  let devocionales = [];
+
+  if (fs.existsSync(carpeta)) {
+    const archivos = fs.readdirSync(carpeta).filter((a) => a.endsWith(".md"));
+
+    devocionales = archivos.map((archivo) => {
+      const contenido = fs.readFileSync(path.join(carpeta, archivo), "utf-8");
+      const { data } = matter(contenido);
+      const slug = archivo.replace(".md", "");
+      return { ...data, slug };
+    });
+
+    devocionales.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
   }
-
-  const archivos = fs.readdirSync(carpeta).filter((a) => a.endsWith(".md"));
-
-  const devocionales = archivos.map((archivo) => {
-    const contenido = fs.readFileSync(path.join(carpeta, archivo), "utf-8");
-    const { data } = matter(contenido);
-    const slug = archivo.replace(".md", "");
-    return { ...data, slug };
-  });
-
-  devocionales.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
   return (
     <>
-      {/* HERO */}
+      {/* HERO UNIFICADO */}
       <section className="relative overflow-hidden bg-ibe-celeste text-white">
         <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/5" />
         <div className="absolute -left-32 bottom-[-120px] h-80 w-80 rounded-full bg-white/5" />
@@ -81,7 +67,7 @@ export default function Devocional() {
         </div>
       </section>
 
-      {/* LISTA DE DEVOCIONALES */}
+      {/* LISTA DE DEVOCIONALES O ESTADO VACÍO */}
       <section className="bg-white py-20 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
@@ -93,51 +79,67 @@ export default function Devocional() {
             </h2>
           </div>
 
-          <div className="flex flex-col gap-6">
-            {devocionales.map((devocional) => (
-              <Link
-                key={devocional.slug}
-                href={`/devocional/${devocional.slug}`}
-                className="group border border-gray-100 rounded-2xl p-8 bg-white shadow-sm hover:shadow-md hover:border-ibe-celeste/40 transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Fecha y Pastor */}
-                <div className="flex flex-wrap items-center gap-4 mb-3">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-ibe-celeste uppercase tracking-wider">
-                    <FaCalendarAlt className="text-xs" />
-                    <span>
-                      {new Date(devocional.fecha).toLocaleDateString("es-CR", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </span>
-                  </div>
-                  {devocional.pastor && (
-                    <div className="flex items-center gap-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                      <FaUser className="text-xs" />
-                      <span>{devocional.pastor}</span>
+          {devocionales.length === 0 ? (
+            /* Tarjeta estilizada cuando no hay devocionales */
+            <div className="border border-dashed border-gray-200 rounded-2xl p-12 text-center bg-gray-50/50">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-ibe-celeste/10 text-ibe-celeste">
+                <FaFolderOpen className="text-xl" />
+              </div>
+              <p className="text-gray-600 font-medium text-base mb-1">
+                No hay devocionales publicados aún.
+              </p>
+              <p className="text-xs text-gray-400">
+                Pronto estaremos compartiendo nuevas reflexiones contigo.
+              </p>
+            </div>
+          ) : (
+            /* Lista normal de devocionales */
+            <div className="flex flex-col gap-6">
+              {devocionales.map((devocional) => (
+                <Link
+                  key={devocional.slug}
+                  href={`/devocional/${devocional.slug}`}
+                  className="group border border-gray-100 rounded-2xl p-8 bg-white shadow-sm hover:shadow-md hover:border-ibe-celeste/40 transition-all duration-300 hover:-translate-y-1"
+                >
+                  {/* Fecha y Pastor */}
+                  <div className="flex flex-wrap items-center gap-4 mb-3">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-ibe-celeste uppercase tracking-wider">
+                      <FaCalendarAlt className="text-xs" />
+                      <span>
+                        {new Date(devocional.fecha).toLocaleDateString("es-CR", {
+                          year: "numeric",
+                          month: "long",
+                          day: "numeric",
+                        })}
+                      </span>
                     </div>
-                  )}
-                </div>
+                    {devocional.pastor && (
+                      <div className="flex items-center gap-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                        <FaUser className="text-xs" />
+                        <span>{devocional.pastor}</span>
+                      </div>
+                    )}
+                  </div>
 
-                {/* Título */}
-                <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 group-hover:text-ibe-celeste transition-colors">
-                  {devocional.titulo}
-                </h2>
+                  {/* Título */}
+                  <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3 group-hover:text-ibe-celeste transition-colors">
+                    {devocional.titulo}
+                  </h2>
 
-                {/* Descripción */}
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
-                  {devocional.descripcion}
-                </p>
+                  {/* Descripción */}
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
+                    {devocional.descripcion}
+                  </p>
 
-                {/* Acción */}
-                <div className="inline-flex items-center gap-2 text-xs font-bold text-ibe-celeste group-hover:translate-x-1 transition-transform duration-200">
-                  <span>Leer devocional</span>
-                  <FaArrowRight className="text-xs" />
-                </div>
-              </Link>
-            ))}
-          </div>
+                  {/* Acción */}
+                  <div className="inline-flex items-center gap-2 text-xs font-bold text-ibe-celeste group-hover:translate-x-1 transition-transform duration-200">
+                    <span>Leer devocional</span>
+                    <FaArrowRight className="text-xs" />
+                  </div>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>
